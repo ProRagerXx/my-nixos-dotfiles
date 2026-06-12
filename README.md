@@ -4,3 +4,5 @@ LMAOO
 it's a throwaway nixos lab for testing basically
 
 gng should i switch to nixos on host 🙏
+
+vibecoded ahh OS
