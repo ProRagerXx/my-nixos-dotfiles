@@ -2,19 +2,8 @@
 
 {
   imports = [
-    # Hardware
     ./hardware-configuration.nix
-
-    # System modules
-    ./modules/desktop.nix
-    ./modules/audio.nix
-    ./modules/users.nix
-    ./modules/gaming.nix
-    ./modules/graphics.nix
-    ./modules/flatpak.nix
-
-    # Package modules
-    ./modules/packages
+    ./modules
   ];
 
   # Bootloader
