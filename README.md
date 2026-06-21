@@ -19,5 +19,5 @@ sudo nixos-rebuild switch
 ```
 then go to the project folder and type:
 ```sh
-sudo nixos-rebuild switch -- flake .#nixos
+sudo nixos-rebuild switch --flake .#nixos
 ```
