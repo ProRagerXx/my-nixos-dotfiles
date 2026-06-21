@@ -17,7 +17,13 @@ then run:
 ```sh
 sudo nixos-rebuild switch
 ```
-then go to the project folder and type:
+then clone the project:
+```sh
+git clone https://github.com/ProRagerXx/my-nixos-dotfiles.git
+cd my-nixos-dotfiles/
+```
+then switch to it
 ```sh
 sudo nixos-rebuild switch --flake .#nixos
 ```
+have fun
