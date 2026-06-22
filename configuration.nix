@@ -131,6 +131,11 @@
     appimage-run
     bottles
 
+    (discord.override {
+      # withOpenASAR = true; # can do this here too
+      withVencord = true;
+    })
+
     # FHS env
     (let
       base = pkgs.appimageTools.defaultFhsEnvArgs;
