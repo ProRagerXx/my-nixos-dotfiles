@@ -44,6 +44,9 @@
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
 
+  services.xserver.desktopManager.cinnamon.enable = true;
+  programs.hyprland.enable = true;
+
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "fr";
@@ -92,12 +95,76 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  programs.steam = {
+    enable = true;
+
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+
+    extraCompatPackages = with pkgs; [
+      proton-ge-bin
+    ];
+  };
+
+  services.flatpak.enable = true;
+
+  systemd.services.flatpak-repo = {
+    wantedBy = [ "multi-user.target" ];
+
+    path = [ pkgs.flatpak ];
+
+    script = ''
+      flatpak remote-add --if-not-exists \
+        flathub \
+        https://flathub.org/repo/flathub.flatpakrepo
+    '';
+  };
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
     git
+    gnome-software
+    protonup-qt
+    appimage-run
+    bottles
+
+    # FHS env
+    (let
+      base = pkgs.appimageTools.defaultFhsEnvArgs;
+    in
+      pkgs.buildFHSEnv (base // {
+        name = "fhs";
+
+        targetPkgs = pkgs:
+          (base.targetPkgs pkgs) ++ (with pkgs; [
+            pkg-config
+            ncurses
+          ]);
+
+        profile = "export FHS=1";
+
+        runScript = "bash";
+
+        extraOutputsToInstall = [ "dev" ];
+      }))
+
+    # Etterna env
+    (pkgs.buildFHSEnv {
+      name = "etterna-fhs";
+
+      targetPkgs = pkgs: with pkgs; [
+        SDL2
+        freetype
+        fontconfig
+        ffmpeg
+        vulkan-loader
+      ];
+
+      runScript = "bash";
+    })
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
