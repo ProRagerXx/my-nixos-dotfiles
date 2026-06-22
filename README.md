@@ -1,4 +1,4 @@
-# SIGMA-NIXOS-GAMING-RTX5060-CONFIG-V7
+# SIGMA-NIXOS-GAMING-RTX5060-CONFIG-V8
 
 it's my dotfiles
 but im in a vm
