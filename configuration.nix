@@ -89,6 +89,16 @@
     ];
   };
 
+  users.users."ffffff" = {
+    isNormalUser = true;
+    description = "MafiaGooner";
+    extraGroups = [ "networkmanager" "wheel" ];
+    packages = with pkgs; [
+      kdePackages.kate
+    #  thunderbird
+    ];
+  };
+
   # Install firefox.
   programs.firefox.enable = true;
 
