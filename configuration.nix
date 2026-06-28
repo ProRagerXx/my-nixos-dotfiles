@@ -91,7 +91,7 @@
 
   users.users."ffffff" = {
     isNormalUser = true;
-    description = "MafiaGooner";
+    description = "Shit";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       kdePackages.kate
