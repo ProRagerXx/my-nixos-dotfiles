@@ -105,7 +105,7 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  programs.steam = {
+  programs.steam = { # -cef-disable-gpu-compositing
     enable = true;
 
     remotePlay.openFirewall = true;
@@ -114,6 +114,10 @@
     extraCompatPackages = with pkgs; [
       proton-ge-bin
     ];
+
+    package = pkgs.steam.override {
+      extraArgs = "-cef-disable-gpu-compositing";
+    };
   };
 
   services.flatpak.enable = true;
