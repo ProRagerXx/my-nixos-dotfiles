@@ -91,13 +91,22 @@
 
   users.users."ffffff" = {
     isNormalUser = true;
-    description = "Shit";
+    description = "poop";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       kdePackages.kate
     #  thunderbird
     ];
   };
+
+  /*virtualisation = {
+    containers.enable = true;
+    podman = {
+      enable = true;
+      dockerCompat = true;
+      defaultNetwork.settings.dns_enabled = true; # Required for containers under podman-compose to be able to talk to each other.
+    };
+  };*/
 
   # Install firefox.
   programs.firefox.enable = true;
@@ -144,6 +153,10 @@
     protonup-qt
     appimage-run
     bottles
+    samrewritten
+    fastfetch
+    #podman
+    #podman-compose
 
     (discord.override {
       # withOpenASAR = true; # can do this here too
