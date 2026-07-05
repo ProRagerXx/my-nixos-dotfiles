@@ -152,15 +152,22 @@
     gnome-software
     protonup-qt
     appimage-run
-    bottles
     samrewritten
     fastfetch
+    htop
+    #discord
+    #vesktop
+    #bottles
     #podman
     #podman-compose
 
     (discord.override {
       # withOpenASAR = true; # can do this here too
       withVencord = true;
+    })
+
+    (pkgs.bottles.override {
+      removeWarningPopup = true;
     })
 
     # FHS env
