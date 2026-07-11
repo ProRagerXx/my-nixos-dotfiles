@@ -154,6 +154,8 @@
     appimage-run
     samrewritten
     fastfetch
+    python3
+    unzip
     htop
     #discord
     #vesktop
