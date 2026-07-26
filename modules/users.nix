@@ -18,4 +18,22 @@
       })
     ];
   };
+
+  users.users.ffffff = {
+    isNormalUser = true;
+    description = "poop";
+
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+    ];
+
+    packages = with pkgs; [
+      #kdePackages.kate
+
+      (discord.override {
+        withVencord = true;
+      })
+    ];
+  };
 }
