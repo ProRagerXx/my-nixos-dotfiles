@@ -10,5 +10,6 @@
     unrar
     flatpak
     appimage-run
+    nitrogen
   ];
 }
