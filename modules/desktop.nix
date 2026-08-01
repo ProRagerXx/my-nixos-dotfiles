@@ -9,6 +9,7 @@
   services.xserver.desktopManager.cinnamon.enable = true;
   services.xserver.desktopManager.lxqt.enable = true;
   services.xserver.desktopManager.xfce.enable = true;
+  services.xserver.windowManager.openbox.enable = true;
 
   programs.hyprland.enable = true;
 
