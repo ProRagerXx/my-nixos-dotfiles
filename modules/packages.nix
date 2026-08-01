@@ -8,6 +8,7 @@
     ptyxis
     protonup-qt
     appimage-run
+    fastfetch
     unrar
     bottles
     file
