@@ -15,6 +15,7 @@
     kitty
     git
     gnumake
+    nitrogen
     curl
     jq
     gum
