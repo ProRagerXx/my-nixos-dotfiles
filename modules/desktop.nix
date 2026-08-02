@@ -13,12 +13,12 @@
 
   programs.hyprland.enable = true;
 
+  services.displayManager.defaultSession = "lxqt";
+
   services.xserver.xkb = {
     layout = "fr";
     variant = "";
   };
 
   console.keyMap = "fr";
-
-  programs.firefox.enable = true;
 }
