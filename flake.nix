@@ -7,12 +7,21 @@
     nix-gaming.url = "github:fufexan/nix-gaming";
   };
 
-  outputs = { self, nixpkgs, ... }: {
+  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-      #specialArgs = {inherit inputs;};
       system = "x86_64-linux";
+
       modules = [
         ./configuration.nix
+
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.extraSpecialArgs = { inherit inputs; };
+
+          home-manager.users.fetxd = ./home.nix;
+        }
       ];
     };
   };
